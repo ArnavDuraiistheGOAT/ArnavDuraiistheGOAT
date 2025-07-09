@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VIRUS DETECTED</title>
+  <style>
+    body {
+      background-color: black;
+      color: red;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding-top: 100px;
+      cursor: crosshair;
+    }
+
+    h1 {
+      font-size: 60px;
+      animation: blink 0.8s infinite;
+    }
+
+    #message {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    #timer {
+      font-size: 48px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body onclick="redirectUser()">
+  <h1>⚠️ VIRUS DETECTED ⚠️</h1>
+  <div id="message">Your personal data will be stolen in:</div>
+  <div id="timer">10</div>
+
+  <script>
+    let timeLeft = 10;
+    const timer = document.getElementById("timer");
+    const message = document.getElementById("message");
+
+    const countdown = setInterval(() => {
+      timeLeft--;
+      timer.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        timer.textContent = "STEALING INFO NOW...";
+        message.textContent = "🔓 Accessing webcam... exporting passwords... 💾";
+      }
+    }, 1000);
+
+    function redirectUser() {
+      window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    }
+  </script>
+</body>
+</html>
+
